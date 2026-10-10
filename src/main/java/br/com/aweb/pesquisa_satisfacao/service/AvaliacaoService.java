@@ -2,6 +2,7 @@ package br.com.aweb.pesquisa_satisfacao.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.aweb.pesquisa_satisfacao.model.Avaliacao;
@@ -11,23 +12,23 @@ import jakarta.transaction.Transactional;
 
 @Service
 public class AvaliacaoService {
-
+    
     private final AvaliacaoRepository avaliacaoRepository;
 
-    public AvaliacaoService(AvaliacaoRepository avaliacaoRepository) {
+    public AvaliacaoService(AvaliacaoRepository avaliacaoRepository){
         this.avaliacaoRepository = avaliacaoRepository;
     }
 
     @Transactional
-    public Avaliacao salvarAvaliacao(Avaliacao avaliacao) {
+    public Avaliacao salvarAvaliacao(Avaliacao avaliacao){
         return avaliacaoRepository.save(avaliacao);
     }
 
-    public List<Avaliacao> listarTodasAvaliacoes() {
+    public List<Avaliacao> listarTodasAvaliacoes(){
         return avaliacaoRepository.findAll();
     }
 
-    public List<Avaliacao> buscarAvaliacaoPorSetor(Setor setor) {
+    public List<Avaliacao> buscarAvaliacaoPorSetor(Setor setor){
         return avaliacaoRepository.findBySetor(setor);
     }
 

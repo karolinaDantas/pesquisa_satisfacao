@@ -3,6 +3,7 @@ package br.com.aweb.pesquisa_satisfacao.controller;
 import java.util.Map;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -21,9 +22,10 @@ import jakarta.validation.Valid;
 @RequestMapping("/setores")
 public class SetorController {
 
-    private final SetorService setorService;
+    @Autowired
+    private SetorService setorService;
 
-    public SetorController(SetorService setorService) {
+    public SetorController(SetorService setorService){
         this.setorService = setorService;
     }
 
